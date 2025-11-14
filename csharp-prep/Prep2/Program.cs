@@ -1,47 +1,50 @@
 using System;
+using System.Collections;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep2 World!");
+        Breathing breathing = new Breathing("Breathing Activity", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.");
 
-        Console.Write("What is your grade percentage? ");
-        string answer = Console.ReadLine();
-        int percent = int.Parse(answer);
+        bool running = true;
 
-        string letter = "";
+        while (running)
+        {
+            Console.WriteLine("Menu Options:");
+            Console.WriteLine("  1. Start Breathing Activity");
+            Console.WriteLine("  2. Start Reflecting Activity");
+            Console.WriteLine("  3. Start Listing Activity");
+            Console.WriteLine("  4. Quit");
+            Console.Write("Select a choice from the menu: ");
 
-        if (percent >= 90)
-        {
-            letter = "A";
-        }
-        else if (percent >= 80)
-        {
-            letter = "B";
-        }
-        else if (percent >= 70)
-        {
-            letter = "C";
-        }
-        else if (percent >= 60)
-        {
-            letter = "D";
-        }
-        else
-        {
-            letter = "F";
-        }
+            string choice = Console.ReadLine();
 
-        Console.WriteLine($"Your letter grade is {letter}.");
-
-        if (percent >= 70)
-        {
-            Console.WriteLine("Congradulations! You passed!");
-        }
-        else
-        {
-            Console.WriteLine("You failed. Better luck next time!");
+            switch (choice)
+            {
+                case "1":
+                    breathing.StartMessage();
+                    breathing.InputDuration();
+                    breathing.BreathCycle();
+                    breathing.EndMessage();
+                    break;
+                
+                case "2":
+                    //do something
+                    break;
+                
+                case "3":
+                    //do something
+                    break;
+                
+                case "4":
+                    running = false;
+                    break;
+                
+                default:
+                    Console.WriteLine("Invalid choice, try again.");
+                    break;
+            }
         }
     }
 }
